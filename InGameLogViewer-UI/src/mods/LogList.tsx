@@ -1,18 +1,34 @@
+import { Entity } from "cs2/utils";
 import styles from "./components.module.scss";
-import { Button, Scrollable } from "cs2/ui";
+import { Button, DropdownItem, DropdownMenuTheme, Dropdown, FOCUS_AUTO, Scrollable, DropdownToggle } from "cs2/ui";
+import { useValue } from "cs2/api";
+import { logFileSelected$, logFiles$, openLogFile } from "./bindings";
 
 export const LogListComponent = () => {
 
-    const filenames: string[] = ["abc", "def", "ghi", "jkl", "mno"];    
-    const buttonList = filenames.map((file, idx) => (
-        <div key={idx} className={styles.logListItem}>
-           <Button key={idx} style={{width: '100%'}} variant="floating">{file}</Button>
-        </div>
-    ))
+    const filenames: string[] = useValue(logFiles$);
+    const selectedFile: string = useValue(logFileSelected$);
+    // const buttonList = filenames.map((file, idx) => (
+    //     <div className={styles.logListItem}>
+    //        <Button style={{width: '100%'}} variant="floating">{file}</Button>
+    //     </div>
+    // ))
+    const dropDownList = (<div>
+        {filenames.map((value, idx) => DropdownItem<string>({focusKey: FOCUS_AUTO, value: value, closeOnSelect: true, children: value, onChange:openLogFile, sounds: {select: 'select-item'}}))}
+    </div>);
+    const dropdownTheme : DropdownMenuTheme = {
+        dropdownMenu: "label_RZX",
+        scrollable: "scrollable",
+        dropdownPopup: "dropdownPopup"
+    };
     return (
         <Scrollable className={styles.logList}>
             <div>            
-                {buttonList}
+                <Dropdown focusKey={FOCUS_AUTO} initialFocused={"Test"} content={dropDownList}>
+                    <DropdownToggle className="TEST">
+                        {selectedFile}
+                    </DropdownToggle>
+                </Dropdown>
             </div>
         </Scrollable>
     );

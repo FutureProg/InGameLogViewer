@@ -8,11 +8,8 @@ const register: ModRegistrar = (moduleRegistry) => {
     // - You should see a hello world output to the console.
     // - use the useModding() hook to access exposed UI, api and native coherent engine interfaces. 
     // Good luck and have fun!
-    moduleRegistry.append('Menu', LogPanel);
-    moduleRegistry.append('Menu', PanelActivationButton);
-    // console.log(moduleRegistry.find("game-ui/common/panel/"));
-    // let tof = moduleRegistry.get('game-ui/common/panel/draggable-panel/draggable-panel.tsx', 'DraggablePanel');
-    // console.log(Object.keys(tof));
+    moduleRegistry.append('Menu', LogPanel, 1);
+    moduleRegistry.append('Menu', PanelActivationButton, 2);
 }
 
 export default register;
