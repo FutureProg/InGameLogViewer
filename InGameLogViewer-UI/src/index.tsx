@@ -1,5 +1,6 @@
 import { ModRegistrar } from "cs2/modding";
 import { LogPanel } from "mods/LogPanel";
+import { PanelActivationButton } from "mods/PanelActivationButton";
 
 const register: ModRegistrar = (moduleRegistry) => {
     // While launching game in UI development mode (include --uiDeveloperMode in the launch options)
@@ -8,6 +9,7 @@ const register: ModRegistrar = (moduleRegistry) => {
     // - use the useModding() hook to access exposed UI, api and native coherent engine interfaces. 
     // Good luck and have fun!
     moduleRegistry.append('Menu', LogPanel);
+    moduleRegistry.append('Menu', PanelActivationButton);
     // console.log(moduleRegistry.find("game-ui/common/panel/"));
     // let tof = moduleRegistry.get('game-ui/common/panel/draggable-panel/draggable-panel.tsx', 'DraggablePanel');
     // console.log(Object.keys(tof));

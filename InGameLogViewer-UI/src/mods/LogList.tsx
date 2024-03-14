@@ -6,7 +6,7 @@ export const LogListComponent = () => {
     const filenames: string[] = ["abc", "def", "ghi", "jkl", "mno"];    
     const buttonList = filenames.map((file, idx) => (
         <div key={idx} className={styles.logListItem}>
-           <Button style={{width: '100%'}} variant="floating">{file}</Button>
+           <Button key={idx} style={{width: '100%'}} variant="floating">{file}</Button>
         </div>
     ))
     return (

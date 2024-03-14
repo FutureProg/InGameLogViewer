@@ -6,24 +6,24 @@ import { LogView } from "./LogView";
 import { LogListComponent } from "./LogList";
 import mod from '../../mod.json';
 import { ModuleRegistryAppend } from "cs2/modding";
-import { logPanelEnabled$ } from "./bindings";
-
-export function handleClose() {
-    trigger(mod.id, 'LogPanelClosed');
-}
+import { closeLogPanel, logPanelEnabled$ } from "./bindings";
 
 export const LogPanel: ModuleRegistryAppend =  () => {
     const logPanelEnabled : boolean = useValue(logPanelEnabled$);    
-    if (!logPanelEnabled) {
-        return (<span></span>);
-    }
+    // if (!logPanelEnabled) {
+    //     return (
+    //         <div style={{}}>
+
+    //         </div>
+    //     );
+    // }
     const header = (
         <div>
-            Log <small>log.log</small>
+            Log
         </div>
     )
     return (        
-        <Panel className={styles.logPanel} initialPosition={{x: 0.2, y:0.2}} header={header} onClose={handleClose} draggable={true} title="Name">                                
+        <Panel className={styles.logPanel} style={{display: logPanelEnabled? 'block': 'none'}} initialPosition={{x: 0.2, y:0.2}} header={header} onClose={closeLogPanel} draggable={true}>                                
             <div className={styles.logPanelContent}>
                 <LogView />
                 <LogListComponent />
