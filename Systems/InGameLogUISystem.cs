@@ -63,7 +63,7 @@ namespace Trejak.InGameLogViewer.Systems
 
         private string GetLogFileContent(string fileName)
         {
-            string re = File.ReadAllText(fileName);
+            string re = File.ReadAllText(Path.Combine(LogManager.kDefaultLogPath, fileName));
             return re;
         }
 

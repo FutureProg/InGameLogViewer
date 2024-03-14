@@ -12,6 +12,8 @@ export function closeLogPanel() {
 
 export const logFiles$ = bindValue<string[]>(mod.id, 'LogFiles', ["abc", "def", "ghi", "jkl", "mno"]);
 export const logFileSelected$ = bindValue<string>(mod.id, "LogFileSelected", "");
-export function openLogFile(fileName : string) {
+export function openLogFile(fileName : string) {    
     trigger(mod.id, 'OpenLogFile', fileName);    
 }
+
+export const logContent$ = bindValue<string>(mod.id, 'LogContent', '');
