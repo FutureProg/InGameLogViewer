@@ -6,8 +6,7 @@ import { LogView } from "./LogView";
 import { LogListComponent } from "./LogList";
 import mod from '../../mod.json';
 import { ModuleRegistryAppend } from "cs2/modding";
-
-export const logPanelEnabled$ = bindValue<boolean>(mod.id, 'LogPanelEnabled');
+import { logPanelEnabled$ } from "./bindings";
 
 export function handleClose() {
     trigger(mod.id, 'LogPanelClosed');
@@ -16,7 +15,7 @@ export function handleClose() {
 export const LogPanel: ModuleRegistryAppend =  () => {
     const logPanelEnabled : boolean = useValue(logPanelEnabled$);    
     if (!logPanelEnabled) {
-        return null;
+        return (<span></span>);
     }
     const header = (
         <div>

@@ -3,7 +3,7 @@ using Colossal.Logging;
 using Game;
 using Game.Modding;
 using Game.SceneFlow;
-using Game.SceneFlow;
+using Trejak.InGameLogViewer.Systems;
 
 namespace Trejak.InGameLogViewer
 {
@@ -24,6 +24,8 @@ namespace Trejak.InGameLogViewer
             GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(m_Setting));
 
             AssetDatabase.global.LoadSettings(nameof(InGameLogViewer), m_Setting, new Setting(this));
+
+            updateSystem.UpdateAt<InGameLogUISystem>(SystemUpdatePhase.UIUpdate);
         }
 
         public void OnDispose()

@@ -87,7 +87,7 @@ namespace Trejak.InGameLogViewer
         {
             return new Dictionary<string, string>
             {
-                { m_Setting.GetSettingsLocaleID(), "Mod settings sample" },
+                { m_Setting.GetSettingsLocaleID(), "InGameLogViewer" },
                 { m_Setting.GetOptionTabLocaleID(Setting.kSection), "Main" },
 
                 { m_Setting.GetOptionGroupLocaleID(Setting.kButtonGroup), "Buttons" },
