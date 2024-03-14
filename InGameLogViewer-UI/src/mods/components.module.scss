@@ -32,3 +32,43 @@
     display: block;
     width: 100% !important;
 }
+
+.dropdownItem {
+    padding-top: 4.000000rem;
+    padding-left: 6.000000rem;
+    padding-right: 6.000000rem;
+    padding-bottom: 4.000000rem;
+    text-align: left;
+    color: rgba(0, 0, 0, 1.000000);
+}
+
+.dropdownItem:hover {    
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dropdownMenu {
+    --scrollbarColor: 80,76,83;
+    max-height: 100.000000%;
+    background-image: none;
+    background-color: rgba(255, 255, 255, 1.000000);
+    background-position-x: 0.000000px;
+    background-position-y: 0.000000px;
+    background-repeat: repeat repeat;
+    background-size: auto;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-top-width:  var(--stroke1) ;
+    border-left-width:  var(--stroke1) ;
+    border-bottom-width:  var(--stroke1) ;
+    border-right-width:  var(--stroke1) ;
+    border-top-color: rgba(0, 0, 0, 1.000000);
+    border-left-color: rgba(0, 0, 0, 1.000000);
+    border-right-color: rgba(0, 0, 0, 1.000000);
+    border-bottom-color: rgba(0, 0, 0, 1.000000);
+}
+
+.dropdownPopup {
+    pointer-events: auto;
+}

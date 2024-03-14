@@ -13,13 +13,26 @@ export const LogListComponent = () => {
     //        <Button style={{width: '100%'}} variant="floating">{file}</Button>
     //     </div>
     // ))
-    const dropDownList = (<div>
-        {filenames.map((value, idx) => DropdownItem<string>({focusKey: FOCUS_AUTO, value: value, closeOnSelect: true, children: value, onChange:openLogFile, sounds: {select: 'select-item'}}))}
-    </div>);
+    //theme: {dropdownItem: styles.dropdownItem},
+    const dropDownList = (
+        <div>
+            {
+                filenames.map((value, idx) => DropdownItem<string>({
+                    theme: {dropdownItem: styles.dropdownItem},
+                    focusKey: FOCUS_AUTO, 
+                    value: value, 
+                    closeOnSelect: true,
+                    children: value, 
+                    onChange:openLogFile, 
+                    sounds: {select: 'select-item'}}
+                ))
+            }
+        </div>
+    );
     const dropdownTheme : DropdownMenuTheme = {
-        dropdownMenu: "label_RZX",
+        dropdownMenu: styles.dropdownMenu,
         scrollable: "scrollable",
-        dropdownPopup: "dropdownPopup"
+        dropdownPopup: styles.dropdownPopup
     };
     return (
         <Scrollable className={styles.logList}>
