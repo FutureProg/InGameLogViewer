@@ -1,10 +1,9 @@
 import styles from "./components.module.scss";
 
-import { bindValue, trigger, useValue } from "cs2/api";
-import { Button, Dropdown, DropdownItem, FloatingButton, Icon, IconButtonTheme, MenuButton, Panel, PanelTheme, Scrollable } from "cs2/ui";
+import { useValue } from "cs2/api";
+import { Panel } from "cs2/ui";
 import { LogView } from "./LogView";
 import { LogListComponent } from "./LogList";
-import mod from '../../mod.json';
 import { ModuleRegistryAppend } from "cs2/modding";
 import { closeLogPanel, logPanelEnabled$ } from "./bindings";
 
@@ -13,7 +12,6 @@ export const LogPanel: ModuleRegistryAppend =  () => {
     // if (!logPanelEnabled) {
     //     return (
     //         <div style={{}}>
-
     //         </div>
     //     );
     // }
