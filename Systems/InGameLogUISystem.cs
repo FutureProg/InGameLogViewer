@@ -71,11 +71,13 @@ namespace Trejak.InGameLogViewer.Systems
         private string[] GetLogFileNames()
         {
             var filePaths = Directory.GetFiles(LogManager.kDefaultLogPath, "*.log", SearchOption.TopDirectoryOnly);
-            string[] re = new string[filePaths.Length];
-            for(var i = 0; i < re.Length; i++)
+            string[] re = new string[filePaths.Length+1];
+            for(var i = 0; i < filePaths.Length; i++)
             {
                 re[i] = Path.GetFileName(filePaths[i]);
             }
+            re[re.Length - 1] = PlayerLog;
+            Array.Sort(re);
             return re;
         }
 
