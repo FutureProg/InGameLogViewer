@@ -14,19 +14,22 @@ export const LogListComponent = () => {
     //     </div>
     // ))
     //theme: {dropdownItem: styles.dropdownItem},
+    // const openLogFile = (file: string) => {openLogFile(file);}
+    const dropdownItems = filenames.map((value, idx) => (
+        <DropdownItem<string>
+            theme={{dropdownItem: styles.dropdownItem}}
+            focusKey={FOCUS_AUTO}
+            value={value}
+            closeOnSelect={true}
+            onChange={openLogFile}
+            sounds={{select: 'select-item'}}>
+            {value}    
+        </DropdownItem>
+    ));
+            
     const dropDownList = (
         <div>
-            {
-                filenames.map((value, idx) => DropdownItem<string>({
-                    theme: {dropdownItem: styles.dropdownItem},
-                    focusKey: FOCUS_AUTO, 
-                    value: value, 
-                    closeOnSelect: true,
-                    children: value, 
-                    onChange:openLogFile, 
-                    sounds: {select: 'select-item'}}
-                ))
-            }
+            {dropdownItems}
         </div>
     );
     const dropdownTheme : DropdownMenuTheme = {
