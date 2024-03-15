@@ -18,6 +18,11 @@
     height: 100%;    
     background-color: rgba(0, 0, 0, 0.839);     
     font-size: 12rem;
+    overflow-wrap: normal;
+    overflow-y: scroll;
+
+    scrollbar-color: white;
+    scrollbar-width: thin;
 }
 
 .logList {

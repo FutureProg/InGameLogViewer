@@ -8,10 +8,8 @@ export const LogView = () => {
     let contentArr = content.split('\n').map((value) => <p>{value}</p>);
 
     return (
-        <Scrollable className={styles.logView}>        
-            <div>
-                {contentArr}
-            </div>                                    
-        </Scrollable>
+        <div className={styles.logView}>                    
+            {contentArr}            
+        </div>
     )
 }
