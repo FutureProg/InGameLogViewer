@@ -45,6 +45,9 @@ export const LogListComponent = () => {
                         {selectedFile}
                     </DropdownToggle>
                 </Dropdown>
+                <Button>
+                    Scroll To Bottom
+                </Button>
             </div>
         </Scrollable>
     );

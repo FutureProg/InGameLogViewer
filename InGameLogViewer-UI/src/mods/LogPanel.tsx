@@ -1,11 +1,12 @@
 import styles from "./components.module.scss";
 
 import { useValue } from "cs2/api";
-import { Panel } from "cs2/ui";
+import { Panel, Portal } from "cs2/ui";
 import { LogView } from "./LogView";
 import { LogListComponent } from "./LogList";
 import { ModuleRegistryAppend } from "cs2/modding";
 import { closeLogPanel, logPanelEnabled$ } from "./bindings";
+import {createPortal} from 'react-dom';
 
 export const LogPanel: ModuleRegistryAppend =  () => {
     // logPanelEnabled is set to false by default
@@ -24,13 +25,14 @@ export const LogPanel: ModuleRegistryAppend =  () => {
             Log
         </div>
     )
+    const content = (
+    <Panel className={styles.logPanel} transition={{enter: 'fade'}} style={{display: logPanelEnabled? 'block': 'none'}} initialPosition={{x: 0.2, y:0.2}} header={header} onClose={closeLogPanel} draggable={true}>                                
+        <div className={styles.logPanelContent}>
+            <LogView />
+            <LogListComponent />
+        </div>            
+    </Panel> 
+    )
     // In order to make this work without breaking the game UI, need to rely on the 'display' css attribute;
-    return (        
-        <Panel className={styles.logPanel} transition={{enter: 'fade'}} style={{display: logPanelEnabled? 'block': 'none'}} initialPosition={{x: 0.2, y:0.2}} header={header} onClose={closeLogPanel} draggable={true}>                                
-            <div className={styles.logPanelContent}>
-                <LogView />
-                <LogListComponent />
-            </div>            
-        </Panel>        
-    );
+    return (<Portal>{content}</Portal>)
 }
