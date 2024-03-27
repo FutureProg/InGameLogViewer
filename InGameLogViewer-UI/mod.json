@@ -1,5 +1,6 @@
 {
-  "id": "Trejak.InGameLogViewer",
+  "id": "InGameLogViewer",
+  "fullname": "Trejak.InGameLogViewer",
   "author": "Trejak",
   "version": "1.0.0",
   "dependencies": []
